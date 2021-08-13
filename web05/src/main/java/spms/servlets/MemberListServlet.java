@@ -66,9 +66,7 @@ public class MemberListServlet extends HttpServlet {
 		
 		
 		} catch (Exception e) {
-			request.setAttribute("error", e);
-			RequestDispatcher rd = request.getRequestDispatcher("/Error.jsp");
-			rd.forward(request, response);
+			throw new ServletException(e);
 		} finally { // JDBC 프로그래밍 마무리 , 자원해제 finally 블록은 try catch를 벗어나기전에 반드시 수행
 			try {if (rs != null)rs.close();} catch (Exception e) {}
 			try {if (stmt != null)stmt.close();} catch (Exception e) {}

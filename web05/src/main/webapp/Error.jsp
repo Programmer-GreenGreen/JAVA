@@ -11,6 +11,7 @@
 </head>
 <body>
 <p>문제 발생
-<img alt="" src="../500.jpg">
+
+
 </p>
 </body>

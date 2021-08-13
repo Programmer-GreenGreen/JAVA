@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -32,7 +33,9 @@ public class MemberDeleteServlet extends HttpServlet {
 			response.sendRedirect("list");
 
 		} catch (Exception e) { 
-			throw new ServletException(e);	//예외발생시 ServletException을 서블릿 컨테이너에 던짐		
+			request.setAttribute("error", e);
+			RequestDispatcher rd = request.getRequestDispatcher("/Error.jsp");
+			rd.forward(request, response);	//예외발생시 ServletException을 서블릿 컨테이너에 던짐		
 		}finally {
 			try {if (stmt!= null) stmt.close();} catch(Exception e) {}
 			

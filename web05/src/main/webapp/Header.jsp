@@ -10,7 +10,7 @@
 SPMS(simple Project Management System)
 <span style="float: right;">
 <!-- 사용자 로그인 정보 출력 -->
-<%=member.getName()%>
+
 <a style="color: white;" href="<%=request.getContextPath()%>/auth/logout">로그아웃</a>
 </span>
 </div>
